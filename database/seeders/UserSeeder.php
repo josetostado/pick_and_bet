@@ -20,10 +20,10 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Eduardo',
             'lastName' => 'Quiñonez',
-            'age' => 27,
-            'email' => 'eduardo.grquinonez@gmail.com',
+            'age' => 35,
+            'email' => 'admin@pandbet.com',
             'phoneNumber' => 7226137378,
-            'password' => Hash::make('Tuyyosomos1mismo'),
+            'password' => bcrypt('Pick2021Bet'),
         ])->assignRole('admin');
 
         User::factory(9)->create();
