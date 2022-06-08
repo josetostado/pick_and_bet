@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">
+                    <button type="submit" class="login100-form-btn" onclick="return setEvent('Action','Registro')">
                         Regístrate
                     </button>
                 </div>

@@ -47,7 +47,7 @@
                 <div class="col-12 col-md-6 d-flex justify-content-center">
                     <div class="btn-whatsapp">
                         <button class="btn btn-wha"><a href="https://api.whatsapp.com/send?phone=+525579774544&text=%C2%A1Hola!%20Quisiera%20activar%20mi%20membres%C3%ADa%20Pick%20and%20Bet."
-                                                       style="color: white; text-decoration: none" target="_blank">Enviar WhatsApp</a> </button>
+                                                       style="color: white; text-decoration: none" target="_blank" onclick="return setEvent('Action','Whatsapp')">Enviar WhatsApp</a> </button>
                     </div>
                 </div>
             </div>

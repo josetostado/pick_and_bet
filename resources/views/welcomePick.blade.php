@@ -69,7 +69,7 @@
                         </table>
                     </div>
                     <div class="container-btn-picks-gratuitos">
-                        <a href="{{route('freePicks')}}">
+                        <a href="{{route('freePicks')}}" onclick="return setEvent('Action','Ver todos')">
                             <button class="btn btn-primary">Ver Todos</button>
                         </a>
                     </div>

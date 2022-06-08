@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="../../Login_v3/css/util.css">
     <link rel="stylesheet" type="text/css" href="../../Login_v3/css/main.css">
     <!--===============================================================================================-->
+    @include('layouts.analytics')
 </head>
 <body>
 
