@@ -18,11 +18,7 @@ class ForecastController extends Controller
 
     public function categorias(){
         $categories = Category::all();
-        // $forecasts = Forecast::all()->where('premium', false)->take(4);
         return view('categorias')->with('categories', $categories);
-
-        // return view('forecasts.freePicks', compact('categories', 'basketballCategory', 'boxCategory',
-        //                 'futbolCategory', 'soccerCategory', 'tenisCategory', 'beisbolCategory'));
     }
 
     /**
