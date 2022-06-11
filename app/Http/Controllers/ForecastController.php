@@ -16,6 +16,15 @@ class ForecastController extends Controller
         return view('welcomePick')->with('forecasts', $forecasts);
     }
 
+    public function categorias(){
+        $categories = Category::all();
+        // $forecasts = Forecast::all()->where('premium', false)->take(4);
+        return view('categorias')->with('categories', $categories);
+
+        // return view('forecasts.freePicks', compact('categories', 'basketballCategory', 'boxCategory',
+        //                 'futbolCategory', 'soccerCategory', 'tenisCategory', 'beisbolCategory'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +33,7 @@ class ForecastController extends Controller
     public function freePicks(){
         $categories = Category::all();
 
-        $picks = Forecast::all();
+        $picks = Forecast::orderBy('event_date')->get();
 
 //        Se crean arreglos que almacenan los picks por categorías.
         $boxCategory = array();
@@ -33,6 +42,8 @@ class ForecastController extends Controller
         $soccerCategory = array();
         $tenisCategory = array();
         $beisbolCategory = array();
+        $bestBetCategory=array();
+        $speCategory=array();
 
 //      Se hace push en los arreglos
         foreach ($picks as $pick){
@@ -48,17 +59,23 @@ class ForecastController extends Controller
                 array_push($tenisCategory, $pick);
             } elseif ($pick->category->name == "Béisbol" && !$pick->premium){
                 array_push($beisbolCategory, $pick);
+            } elseif ($pick->category->name == "Today Best Bet" && !$pick->premium){
+                array_push($bestBetCategory, $pick);
+            } elseif ($pick->category->name == "Empates (SPE)" && !$pick->premium){
+                array_push($speCategory, $pick);
             }
         }
 
 //      Se determinan los campos a mostrar en la vista
 
-        $boxCategory = array_slice($boxCategory, 0, 2);
-        $basketballCategory = array_slice($basketballCategory, 0, 2);
-        $futbolCategory = array_slice($futbolCategory, 0, 3);
-        $soccerCategory = array_slice($soccerCategory, 0, 5);
+        $boxCategory = array_slice($boxCategory, 0, 8);
+        $basketballCategory = array_slice($basketballCategory, 0, 8);
+        $futbolCategory = array_slice($futbolCategory, 0, 8);
+        $soccerCategory = array_slice($soccerCategory, 0, 10);
         $tenisCategory = array_slice($tenisCategory, 0, 2);
-        $beisbolCategory = array_slice($beisbolCategory, 0, 3);
+        $beisbolCategory = array_slice($beisbolCategory, 0, 8);
+        $bestBetCategory=array_slice($bestBetCategory,0,3);
+        $speCategory=array_slice($speCategory,0,6);
 
 //        dd($soccerCategory);
 
@@ -83,6 +100,8 @@ class ForecastController extends Controller
         $soccerCategory = array();
         $tenisCategory = array();
         $beisbolCategory = array();
+        $bestBetCategory=array();
+        $speCategory=array();
 
 //      Se hace push en los arreglos
         foreach ($picks as $pick){
@@ -98,17 +117,23 @@ class ForecastController extends Controller
                 array_push($tenisCategory, $pick);
             } elseif ($pick->category->name == "Béisbol" && $pick->premium){
                 array_push($beisbolCategory, $pick);
+            }elseif ($pick->category->name == "Today Best Bet" && $pick->premium){
+                array_push($bestBetCategory, $pick);
+            } elseif ($pick->category->name == "Empates (SPE)" && $pick->premium){
+                array_push($speCategory, $pick);
             }
         }
 
 //      Se determinan los campos a mostrar en la vista
 
-        $boxCategory = array_slice($boxCategory, 0, 2);
-        $basketballCategory = array_slice($basketballCategory, 0, 2);
-        $futbolCategory = array_slice($futbolCategory, 0, 3);
-        $soccerCategory = array_slice($soccerCategory, 0, 5);
+        $boxCategory = array_slice($boxCategory, 0, 8);
+        $basketballCategory = array_slice($basketballCategory, 0, 8);
+        $futbolCategory = array_slice($futbolCategory, 0, 8);
+        $soccerCategory = array_slice($soccerCategory, 0, 10);
         $tenisCategory = array_slice($tenisCategory, 0, 2);
-        $beisbolCategory = array_slice($beisbolCategory, 0, 3);
+        $beisbolCategory = array_slice($beisbolCategory, 0, 8);
+        $bestBetCategory=array_slice($bestBetCategory,0,3);
+        $speCategory=array_slice($speCategory,0,6);
 
 //        dd($soccerCategory);
 

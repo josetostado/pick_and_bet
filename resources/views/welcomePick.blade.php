@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-5">
-                    <h2>Nuestros <span>Picks Gratuitos</span></h2>
+                    <h2>Últimos <span>Resultados</span></h2>
                     <div class="img-container-pricks-gratuitos mb-3">
                         <div class="contenedor-img">
                             <img src="./img/balon-basketball.png" alt="Balón de basketball">
@@ -70,7 +70,7 @@
                     </div>
                     <div class="container-btn-picks-gratuitos">
                         <a href="{{route('freePicks')}}" onclick="return setEvent('Action','Ver todos')">
-                            <button class="btn btn-primary">Ver Todos</button>
+                            <button class="btn btn-primary">Picks Nuevos</button>
                         </a>
                     </div>
                 </div>

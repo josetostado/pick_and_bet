@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Auth;
 
     Route::get('/', [ForecastController::class, 'welcome'])->name('welcome');
 
+    Route::get('/categorias', [ForecastController::class, 'categorias'])->name('categorias');
+    
     Route::get('/free-picks', [ForecastController::class, 'freePicks'])->name('freePicks');
 
     //    Middlewares de roles para premium

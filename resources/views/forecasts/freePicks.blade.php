@@ -14,7 +14,7 @@
     </div>
     <!-- TABLA 1 -->
     @foreach($categories as $category)
-        <div class="container-table">
+        <div class="container-table" id="{{$category->name}}">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -26,6 +26,7 @@
                                     <th scope="col">Fecha</th>
                                     <th scope="col">Evento</th>
                                     <th scope="col">Pronóstico</th>
+                                    <!-- <th scope="col">Likes</th> -->
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -37,6 +38,13 @@
                                             <td class="bg-claro">{{$box->event_date}}</td>
                                             <td class="bg-claro">{{$box->event_name}}</td>
                                             <td class="bg-claro">{{$box->forecast}}</td>
+                                            
+                                            <td class="bg-claro likes">
+                                                <div class="d-flex">
+                                                    <i onclick="myFunction(this)" class="fa fa-thumbs-up mr-3"> 325</i>
+                                                    <i onclick="myFunction(this)" class="fa fa-thumbs-down"> 42</i>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif
