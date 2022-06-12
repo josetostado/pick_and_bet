@@ -506,11 +506,13 @@
     user-select: none;
 }
 
-.likes .fa:hover {
-    color: #19ef14
-}
+
 .likes .fa:active{
     color: #16c60c;
+}
+
+.like-active{
+    color: #19ef14;
 }
 
 

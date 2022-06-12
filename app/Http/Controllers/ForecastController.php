@@ -29,7 +29,7 @@ class ForecastController extends Controller
     public function freePicks(){
         $categories = Category::all();
 
-        $picks = Forecast::orderBy('event_date')->get();
+        $picks = Forecast::orderBy('event_date')->whereDate('event_date', '>=', date('Y-m-d'))->get();
 
 //        Se crean arreglos que almacenan los picks por categorías.
         $boxCategory = array();
@@ -87,7 +87,7 @@ class ForecastController extends Controller
     public function premiumPicks(){
         $categories = Category::all();
 
-        $picks = Forecast::all();
+        $picks = Forecast::orderBy('event_date')->whereDate('event_date', '>=', date('Y-m-d'))->get();
 
 //        Se crean arreglos que almacenan los picks por categorías.
         $boxCategory = array();
@@ -139,6 +139,20 @@ class ForecastController extends Controller
 
     public function premiumRegister(){
         return view('forecasts.premiumRegister');
+    }
+
+    public function likePick(Request $request){
+        $req=$request->all();
+        $fore=Forecast::findOrFail($req["id"]);
+
+        if($req["like"]){
+            $fore->likes=$fore->likes+($req["state"]?1:-1);
+        }else{
+            $fore->dislikes=$fore->dislikes+($req["state"]?1:-1);
+        }
+        
+        $fore->save();
+        return response()->json($fore);
     }
 
     /**

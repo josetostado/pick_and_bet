@@ -49,3 +49,5 @@ Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard'
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //Route::post('/registerUser', [UserController::class, 'registerUser'])->name('registerUser');
+
+Route::post('/like-pick', [ForecastController::class, 'likePick']);

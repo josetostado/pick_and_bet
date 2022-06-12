@@ -12,7 +12,11 @@
             </div>
         </div>
     </div>
+    
+    <input type="hidden" name="_token" value="{{ csrf_token() }}"
+
     <!-- TABLA 1 -->
+    
     @foreach($categories as $category)
         <div class="container-table" id="{{$category->name}}">
             <div class="container">
@@ -38,11 +42,11 @@
                                             <td class="bg-claro">{{$box->event_date}}</td>
                                             <td class="bg-claro">{{$box->event_name}}</td>
                                             <td class="bg-claro">{{$box->forecast}}</td>
-                                            
+                                    
                                             <td class="bg-claro likes">
                                                 <div class="d-flex">
-                                                    <i onclick="myFunction(this)" class="fa fa-thumbs-up mr-3"> 325</i>
-                                                    <i onclick="myFunction(this)" class="fa fa-thumbs-down"> 42</i>
+                                                    <i onclick="like(this,'{{$box->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$box->id}}"> {{$box->likes}}</i>
+                                                    <i onclick="like(this,'{{$box->id}}',false)" class="fa fa-thumbs-down" data-id="{{$box->id}}"> {{$box->dislikes}}</i>
                                                 </div>
                                             </td>
                                         </tr>
@@ -56,6 +60,12 @@
                                             <td class="bg-claro">{{$basketball->event_date}}</td>
                                             <td class="bg-claro">{{$basketball->event_name}}</td>
                                             <td class="bg-claro">{{$basketball->forecast}}</td>
+                                            <td class="bg-claro likes">
+                                                <div class="d-flex">
+                                                    <i onclick="like(this,'{{$basketball->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$basketball->id}}"> {{$basketball->likes}}</i>
+                                                    <i onclick="like(this,'{{$basketball->id}}',false)" class="fa fa-thumbs-down" data-id="{{$basketball->id}}"> {{$basketball->dislikes}}</i>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -68,6 +78,12 @@
                                                 <td class="bg-claro">{{$futbol->event_date}}</td>
                                                 <td class="bg-claro">{{$futbol->event_name}}</td>
                                                 <td class="bg-claro">{{$futbol->forecast}}</td>
+                                                <td class="bg-claro likes">
+                                                    <div class="d-flex">
+                                                        <i onclick="like(this,'{{$futbol->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$futbol->id}}"> {{$futbol->likes}}</i>
+                                                        <i onclick="like(this,'{{$futbol->id}}',false)" class="fa fa-thumbs-down" data-id="{{$futbol->id}}"> {{$futbol->dislikes}}</i>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @endif
@@ -80,6 +96,12 @@
                                             <td class="bg-claro">{{$soccer->event_date}}</td>
                                             <td class="bg-claro">{{$soccer->event_name}}</td>
                                             <td class="bg-claro">{{$soccer->forecast}}</td>
+                                            <td class="bg-claro likes">
+                                                <div class="d-flex">
+                                                    <i onclick="like(this,'{{$soccer->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$soccer->id}}"> {{$soccer->likes}}</i>
+                                                    <i onclick="like(this,'{{$soccer->id}}',false)" class="fa fa-thumbs-down" data-id="{{$soccer->id}}"> {{$soccer->dislikes}}</i>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -91,6 +113,12 @@
                                             <td class="bg-claro">{{$tenis->event_date}}</td>
                                             <td class="bg-claro">{{$tenis->event_name}}</td>
                                             <td class="bg-claro">{{$tenis->forecast}}</td>
+                                            <td class="bg-claro likes">
+                                                <div class="d-flex">
+                                                    <i onclick="like(this,'{{$tenis->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$tenis->id}}"> {{$tenis->likes}}</i>
+                                                    <i onclick="like(this,'{{$tenis->id}}',false)" class="fa fa-thumbs-down" data-id="{{$tenis->id}}"> {{$tenis->dislikes}}</i>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -102,6 +130,12 @@
                                             <td class="bg-claro">{{$beisbol->event_date}}</td>
                                             <td class="bg-claro">{{$beisbol->event_name}}</td>
                                             <td class="bg-claro">{{$beisbol->forecast}}</td>
+                                            <td class="bg-claro likes">
+                                                <div class="d-flex">
+                                                    <i onclick="like(this,'{{$beisbol->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$beisbol->id}}"> {{$beisbol->likes}}</i>
+                                                    <i onclick="like(this,'{{$beisbol->id}}',false)" class="fa fa-thumbs-down" data-id="{{$beisbol->id}}"> {{$beisbol->dislikes}}</i>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -115,4 +149,5 @@
         </div>
     @endforeach
 
+    <script src="../../js/likes.js"></script>
 @endsection
