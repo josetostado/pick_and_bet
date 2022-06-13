@@ -140,6 +140,40 @@
                                     @endforeach
                                 @endif
 
+                                {{--                            SPE--}}
+                                @if($category->name === "Empates (SPE)")
+                                    @foreach($speCategory as $spe)
+                                        <tr>
+                                            <td class="bg-claro">{{$spe->event_date}}</td>
+                                            <td class="bg-claro">{{$spe->event_name}}</td>
+                                            <td class="bg-claro">{{$spe->forecast}}</td>
+                                            <td class="bg-claro likes">
+                                                <div class="d-flex">
+                                                    <i onclick="like(this,'{{$spe->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$spe->id}}"> {{$spe->likes}}</i>
+                                                    <i onclick="like(this,'{{$spe->id}}',false)" class="fa fa-thumbs-down" data-id="{{$spe->id}}"> {{$spe->dislikes}}</i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                                
+                                {{--                            BEST BET--}}
+                                @if($category->name === "Today Best Bet")
+                                    @foreach($bestBetCategory as $bet)
+                                        <tr>
+                                            <td class="bg-claro">{{$bet->event_date}}</td>
+                                            <td class="bg-claro">{{$bet->event_name}}</td>
+                                            <td class="bg-claro">{{$bet->forecast}}</td>
+                                            <td class="bg-claro likes">
+                                                <div class="d-flex">
+                                                    <i onclick="like(this,'{{$bet->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$bet->id}}"> {{$bet->likes}}</i>
+                                                    <i onclick="like(this,'{{$bet->id}}',false)" class="fa fa-thumbs-down" data-id="{{$bet->id}}"> {{$bet->dislikes}}</i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+
                                 </tbody>
                             </table>
                         </div>

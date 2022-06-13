@@ -61,6 +61,12 @@
                                     <td class="bg-claro">{{$forecast->event_date}}</td>
                                     <td class="bg-claro">{{$forecast->event_name}}</td>
                                     <td class="bg-claro">{{$forecast->forecast}}</td>
+                                    <td class="bg-claro likes">
+                                        <div class="d-flex">
+                                            <i onclick="like(this,'{{$forecast->id}}',true)" class="fa fa-thumbs-up mr-3" data-id="{{$forecast->id}}"> {{$forecast->likes}}</i>
+                                            <i onclick="like(this,'{{$forecast->id}}',false)" class="fa fa-thumbs-down" data-id="{{$forecast->id}}"> {{$forecast->dislikes}}</i>
+                                        </div>
+                                    </td>
                                 </tr>
 
 
@@ -69,7 +75,7 @@
                         </table>
                     </div>
                     <div class="container-btn-picks-gratuitos">
-                        <a href="{{route('freePicks')}}" onclick="return setEvent('Action','Ver todos')">
+                        <a href="{{route('categorias')}}" onclick="return setEvent('Action','Ver todos')">
                             <button class="btn btn-primary">Picks Nuevos</button>
                         </a>
                     </div>
@@ -127,5 +133,5 @@
             </div>
         </div>
     </div>
-
+<script src="../../js/likes.js"></script>
 @endsection

@@ -29,7 +29,7 @@ class ForecastController extends Controller
     public function freePicks(){
         $categories = Category::all();
 
-        $picks = Forecast::orderBy('event_date')->whereDate('event_date', '>=', date('Y-m-d'))->get();
+        $picks = Forecast::orderBy('event_date')->get();
 
 //        Se crean arreglos que almacenan los picks por categorías.
         $boxCategory = array();
@@ -76,7 +76,7 @@ class ForecastController extends Controller
 //        dd($soccerCategory);
 
         return view('forecasts.freePicks', compact('categories', 'basketballCategory', 'boxCategory',
-                        'futbolCategory', 'soccerCategory', 'tenisCategory', 'beisbolCategory'));
+                        'futbolCategory', 'soccerCategory', 'tenisCategory', 'beisbolCategory','speCategory','bestBetCategory'));
     }
 
     /**
@@ -87,7 +87,7 @@ class ForecastController extends Controller
     public function premiumPicks(){
         $categories = Category::all();
 
-        $picks = Forecast::orderBy('event_date')->whereDate('event_date', '>=', date('Y-m-d'))->get();
+        $picks = Forecast::orderBy('event_date')->get();
 
 //        Se crean arreglos que almacenan los picks por categorías.
         $boxCategory = array();
@@ -134,7 +134,7 @@ class ForecastController extends Controller
 //        dd($soccerCategory);
 
         return view('forecasts.premiumPicks', compact('categories', 'basketballCategory', 'boxCategory',
-            'futbolCategory', 'soccerCategory', 'tenisCategory', 'beisbolCategory'));
+            'futbolCategory', 'soccerCategory', 'tenisCategory', 'beisbolCategory','speCategory','bestBetCategory'));
     }
 
     public function premiumRegister(){

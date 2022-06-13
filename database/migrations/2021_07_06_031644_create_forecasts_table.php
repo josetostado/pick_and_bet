@@ -20,8 +20,8 @@ class CreateForecastsTable extends Migration
             $table->date('event_date');
             $table->string('forecast');
             $table->boolean('premium');
-            $table->integer('likes');
-            $table->integer('dislikes');
+            $table->integer('likes')->default(0);
+            $table->integer('dislikes')->default(0);
             $table->unsignedBigInteger('category_id')->nullable();
 
             $table->foreign('category_id')->references('id')

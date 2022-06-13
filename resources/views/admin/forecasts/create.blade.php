@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Crear pronósticos</h4>
-                <h6 class="card-subtitle">Agregar <code>pronósticos</code> a la base de datos Pick and Bet.</h6>
+                
                 <form class="form-material m-t-40" action="{{route('forecasts.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
