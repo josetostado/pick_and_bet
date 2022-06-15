@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="overlay-container-content">
-                            <h1>Con Nosotros <br> ¡Apuesta y Gana!</h1>
+                            <h1>Con Pick&Bet <br> ¡Apuesta y Gana!</h1>
                             <p>Pick & Bet te ofrece los mejores pronósticos para mejorar los resultados en tus Apuestas Deportivas,
                                 <br> diseñadas por expertos en cada mercado. Con nuestras referencias, convertirás tus perdidas en ganancias.
                                 <br> Aprende a jugar con los Bookies (Casas de Apuestas), perfecciona tus apuestas en línea!</p>
@@ -120,7 +120,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2>Con Nosotros <br> ¡Apuesta y Gana!</h2>
+                    <h2>Con Pick&Bet <br> ¡Apuesta y Gana!</h2>
                     <div class="contenedor-img-guantes">
                         <img src="./img/guantes-artes-marciales.png" alt="Guantes">
                     </div>

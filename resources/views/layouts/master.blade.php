@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}"/>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css'); }} ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{route('welcome')}}">
-{{--                <img src="./img/pick&bet-logotipo-inverted.png" alt="Logo Pick&Bet">--}}
-                <img src="img/logo_1.png" alt="">
+{{--                <img src="{{URL::asset('img/pick&bet-logotipo-inverted.png')}}" alt="Logo Pick&Bet">--}}
+                <img src="{{URL::asset('img/logo_1.png');}}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -82,7 +82,7 @@
                     <div class="col-12 col-md-6">
                         <div class="contenedor-img-footer">
 {{--                            <img src="img/pick&bet-logotipo-inverted.png" alt="Logotipo de Pick & Bet">--}}
-                            <img src="img/logo_1.png" alt="">
+                            <img src="{{URL::asset('img/logo_1.png');}}" alt="">
                         </div>
                     </div>
                     <div class="col-12 col-md-6">

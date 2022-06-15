@@ -29,7 +29,7 @@
                         <img class="card-img-top img-categoria img-fluid" src="{{asset('storage/'.$category->image)}}" alt="Card image cap">
                         <div class="card-body pb-0 text-center px-0">
                             <h5 class="card-title ">{{$category->name}}</h5>
-                            <a class="btn btn-primary" href="{{route('freePicks')}}{{'#'.$category->name}}">Ver Picks</a>
+                            <a class="btn btn-primary" href="{{route('categoriaPicks',['categoryName'=>trim(strtolower(preg_replace('/\s+/', '',str_replace(['á','é','í','ó','ú','Á','É','Í','Ó','Ú','/','(',')'],['a','e','i','o','u','A','E','I','O','U','-','-','-'], $category->name))),'-')])}}">Ver Picks</a>
                         </div>
                     </div>
                 </div>

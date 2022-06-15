@@ -137,6 +137,57 @@ class ForecastController extends Controller
             'futbolCategory', 'soccerCategory', 'tenisCategory', 'beisbolCategory','speCategory','bestBetCategory'));
     }
 
+    private function sanearCategorias($cadena){
+        return trim(strtolower(preg_replace('/\s+/', '',str_replace(["á","é","í","ó","ú","Á","É","Í","Ó","Ú","/","(",')'],["a","e","i","o","u","A","E","I","O","U","-","-","-"], $cadena))),"-");
+    }
+
+    public function categoriaPicks($categoryName){
+        
+        //sanearlo nuevamente en caso de que se viaje a esta vista por medio de la ruta
+        $categoryName=$this->sanearCategorias($categoryName);
+
+        $nameCategoryOriginal="";
+
+        foreach (Category::all() as $category) {
+            if($this->sanearCategorias($category->name)==$categoryName){
+                $nameCategoryOriginal=$category->name;
+            }
+        }
+
+        $picks = Forecast::orderBy('event_date')->get();
+        $pickCategory=array();
+
+        foreach ($picks as $pick){
+            if ($this->sanearCategorias($pick->category->name) == $categoryName && !$pick->premium){
+                array_push($pickCategory, $pick);
+            }
+        }
+
+        if($nameCategoryOriginal!=""){
+            $rowsMax=0;
+            if ($nameCategoryOriginal== "UFC/ Box"){
+               $rowsMax=8;
+            } elseif ($nameCategoryOriginal== "Basketball" ){
+               $rowsMax=8;
+            } elseif ($nameCategoryOriginal == "Fútbol Americano"){
+               $rowsMax=8;
+            } elseif ($nameCategoryOriginal == "Fútbol Soccer"){
+               $rowsMax=10;
+            } elseif ($nameCategoryOriginal== "Tenis" ){
+               $rowsMax=2;
+            } elseif ($nameCategoryOriginal == "Béisbol" ){
+               $rowsMax=8;
+            }elseif ($nameCategoryOriginal == "Today Best Bet" ){
+               $rowsMax=3;
+            } elseif ($nameCategoryOriginal == "Empates (SPE)"){
+               $rowsMax=6;
+            }
+            $pickCategory = array_slice($pickCategory, 0, $rowsMax);
+        }
+
+        return view('forecasts.categoriePick', compact('pickCategory'))->with('nameCategoryOriginal', $nameCategoryOriginal);;
+    }
+
     public function premiumRegister(){
         return view('forecasts.premiumRegister');
     }
